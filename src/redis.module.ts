@@ -14,7 +14,11 @@ import {
       useFactory: async (): Promise<
         RedisClientType<RedisModules, RedisFunctions, RedisScripts>
       > => {
-        const redis = new RedisClient({});
+        const redis = new RedisClient({
+          url: process.env.REDIS_URL || 'localhost:6379',
+          username: process.env.REDIS_USERNAME || 'default',
+          password: process.env.REDIS_PASSWORD || '',
+        });
         return await redis.connect();
       },
     },
