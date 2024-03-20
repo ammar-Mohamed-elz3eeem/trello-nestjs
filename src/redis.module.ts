@@ -5,6 +5,7 @@ import {
   RedisFunctions,
   RedisModules,
   RedisScripts,
+  createClient,
 } from 'redis';
 
 @Module({
@@ -14,10 +15,12 @@ import {
       useFactory: async (): Promise<
         RedisClientType<RedisModules, RedisFunctions, RedisScripts>
       > => {
-        const redis = new RedisClient({
-          url: process.env.REDIS_URL || 'localhost:6379',
-          username: process.env.REDIS_USERNAME || 'default',
+        const redis = createClient({
           password: process.env.REDIS_PASSWORD || '',
+          socket: {
+            host: process.env.REDIS_HOST || 'localhost',
+            port: Number(process.env.REDIS_PORT) || 6379,
+          }
         });
         return await redis.connect();
       },
