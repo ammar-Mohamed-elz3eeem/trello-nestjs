@@ -1,12 +1,10 @@
 # trello-clone
 
-![Trello clone](./demo.gif)
-
 - [Overview](#overview)
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#steps-to-run-this-on-your-local)
-- [Tech Stack](#tech-stacks)
+- [Tech Stack](#tech-stack)
 - [Endpoints](#Endpoints)
 
 ## Overview
