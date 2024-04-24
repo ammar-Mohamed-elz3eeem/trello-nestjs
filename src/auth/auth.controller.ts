@@ -69,6 +69,7 @@ export class AuthController {
       }
       return { status: 'success', data: user };
     } catch (error) {
+      console.log(error);
       throw new HttpException({ message: (error as Error).message }, 500);
     }
   }
