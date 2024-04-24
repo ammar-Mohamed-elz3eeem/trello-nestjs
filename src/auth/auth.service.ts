@@ -87,6 +87,7 @@ export class AuthService {
 
   async me(token: string) {
     try {
+      console.log(token);
       const redisData = await this.redis.get(token);
       console.log('redisData', redisData);
       const userData = JSON.parse(redisData);
