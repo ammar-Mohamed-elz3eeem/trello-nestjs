@@ -22,10 +22,7 @@ const whitelist = [
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: whitelist,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
+    origin: true,
     credentials: true,
   });
   app.use(cookieParser(process.env.COOKIE_SECRET));
