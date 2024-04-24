@@ -10,7 +10,7 @@ export class IsLoggedInMiddleware implements NestMiddleware {
     if (!authKey) {
       return res.status(401).json({ message: 'unauthorized' });
     }
-    console.log("authKey from checking login middleware", authKey);
+    console.log('authKey from checking login middleware', authKey);
     next();
   }
 }

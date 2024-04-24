@@ -47,7 +47,7 @@ export class AuthController {
       const redisKey = await this.authService.addNewUser(body);
       res.cookie('authKey', redisKey, {
         httpOnly: true,
-        sameSite: 'strict',
+        sameSite: 'none',
         secure: !(process.env.NODE_ENV === 'development'),
         path: '/',
       });
