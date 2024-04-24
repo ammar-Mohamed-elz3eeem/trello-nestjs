@@ -88,8 +88,8 @@ export class AuthService {
   async me(token: string) {
     try {
       const redisData = await this.redis.get(token);
+      console.log('redisData', redisData);
       const userData = JSON.parse(redisData);
-      console.log('redisData', userData);
       if (!userData) {
         throw new Error('Unauthorized');
       }
